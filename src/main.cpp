@@ -4,6 +4,7 @@
 #include <Adafruit_NeoPixel.h>
 #include <WiFi.h>
 #include <WebServer.h>
+#include <ArduinoJson.h>
 
 const int LED = 13;
 const int NUMPIXEL = (8*32);
@@ -12,9 +13,15 @@ uint counter = 0;
 const char *SSID="venkman_kids";
 const char *PWD="Th1sI$f0RK1dS!";
 
-//WebServer server(80);
+WebServer server(80);
 Adafruit_NeoPixel pixels(NUMPIXEL, LED, NEO_GRB + NEO_KHZ800);
+RequestHandler handler;
 
+void handleMode()
+{
+  StaticJsonDocument<512> modeDoc;
+
+}
 
 void setup() {
   // put your setup code here, to run once:
@@ -40,16 +47,16 @@ void setup() {
   Serial.print("Connected. IP: ");
   Serial.println(WiFi.localIP());
 
+  server.on("/mode", handleMode);
+
   //pinMode(LED, OUTPUT);
   pixels.begin();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  //Serial.println(counter++);
-  //digitalWrite(LED, ((counter++) % 2) ? HIGH : LOW);
   pixels.clear();
-  pixels.setBrightness(64);
+  pixels.setBrightness(32);
 
   for (int i=0; i < NUMPIXEL; i++)
   {
