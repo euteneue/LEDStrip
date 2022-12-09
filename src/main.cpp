@@ -5,13 +5,16 @@
 #include <WiFi.h>
 #include <WebServer.h>
 
-int LED = 13;
+const int LED = 13;
+const int NUMPIXEL = (8*32);
 uint counter = 0;
 
 const char *SSID="venkman_kids";
 const char *PWD="Th1sI$f0RK1dS!";
 
 //WebServer server(80);
+Adafruit_NeoPixel pixels(NUMPIXEL, LED, NEO_GRB + NEO_KHZ800);
+
 
 void setup() {
   // put your setup code here, to run once:
@@ -37,12 +40,28 @@ void setup() {
   Serial.print("Connected. IP: ");
   Serial.println(WiFi.localIP());
 
-  pinMode(LED, OUTPUT);
+  //pinMode(LED, OUTPUT);
+  pixels.begin();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
   //Serial.println(counter++);
-  digitalWrite(LED, ((counter++) % 2) ? HIGH : LOW);
-  delay(1000);
+  //digitalWrite(LED, ((counter++) % 2) ? HIGH : LOW);
+  pixels.clear();
+  pixels.setBrightness(64);
+
+  for (int i=0; i < NUMPIXEL; i++)
+  {
+    pixels.setPixelColor(i, pixels.Color(i,i,i));
+    
+    pixels.show();
+    delay(50);
+  }
+
+  for (int i=NUMPIXEL-1; i >= 0; i--)
+  {
+    pixels.setPixelColor(i, pixels.Color(255,0,0));
+    pixels.show();
+  }
 }
