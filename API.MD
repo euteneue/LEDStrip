@@ -26,7 +26,7 @@ Liefert den aktuellen Status des LED Strip zurück.
 
 **Beispiel**
 
-## Antwort bei Erfolg
+### Antwort bei Erfolg
 
 **HTTP Response** : `200 OK`
 
@@ -65,7 +65,7 @@ Schaltet den LED Strip an oder aus
 }
 ```
 
-## Antwort bei Erfolg
+### Antwort bei Erfolg
 
 **HTTP Response** : `200 OK`
 
@@ -100,7 +100,7 @@ Schaltet den LED Strip in den Modus "Laufschrift"
 }
 ```
 
-## Antwort bei Erfolg
+### Antwort bei Erfolg
 
 **HTTP Response** : `200 OK`
 
@@ -133,7 +133,7 @@ Schaltet den LED Strip in den Modus "Vollfarbe"
 }
 ```
 
-## Antwort bei Erfolg
+### Antwort bei Erfolg
 
 **HTTP Response** : `200 OK`
 
@@ -166,7 +166,7 @@ Schaltet den LED Strip in den Modus "Durchlaufende Regenbogenfarben"
 }
 ```
 
-## Antwort bei Erfolg
+### Antwort bei Erfolg
 
 **HTTP Response** : `200 OK`
 
