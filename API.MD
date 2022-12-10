@@ -35,8 +35,9 @@ Liefert den aktuellen Status des LED Strip zurück.
 ```json
 {
     "on":       "1",
-    "mode":     "laufschrift",
+    "mode":     "marquee",
     "color":    "#FFFFFF",
+    "brightness": 32,
     "payload":  "On Air"
 }
 ```
@@ -84,7 +85,8 @@ Schaltet den LED Strip in den Modus "Laufschrift"
 ```json
 {
     "text":       "[String containing the text to be displayed <= 100 chars]",
-    "color":      "[The color to be used as #RRGGBB two digit hex values per color]"
+    "color":      "[The color to be used as #RRGGBB two digit hex values per color]",
+    "brightness": "[A value between 0 (off) and 255 (full brightness - not recommended!)]"
 }
 ```
 
@@ -93,7 +95,8 @@ Schaltet den LED Strip in den Modus "Laufschrift"
 ```json
 {
     "text":       "On Air! Do not disturb!",
-    "color":      "#FF2222"
+    "color":      "#FF2222",
+    "brightness": 32
 }
 ```
 
@@ -116,7 +119,8 @@ Schaltet den LED Strip in den Modus "Vollfarbe"
 
 ```json
 {
-    "color":      "[The color to be used as #RRGGBB two digit hex values per color]"
+    "color":      "[The color to be used as #RRGGBB two digit hex values per color]",
+    "brightness": "[A value between 0 (off) and 255 (full brightness - not recommended!)]"
 }
 ```
 
@@ -124,7 +128,41 @@ Schaltet den LED Strip in den Modus "Vollfarbe"
 
 ```json
 {
-    "color":      "#00AA55"
+    "color":      "#00AA55",
+    "brightness": 16
+}
+```
+
+## Antwort bei Erfolg
+
+**HTTP Response** : `200 OK`
+
+**Content example**
+
+`Keine.`
+
+## Rainbow Wave
+Schaltet den LED Strip in den Modus "Durchlaufende Regenbogenfarben"
+
+**URL** : `/ledstrip/rainbow`
+
+**Request Method** : `POST`
+
+**Eingabedaten**
+
+```json
+{
+    "speed":      "[A value between 1 and 10]",
+    "brightness": "[A value between 0 (off) and 255 (full brightness - not recommended!)]"
+}
+```
+
+**Beispiel**
+
+```json
+{
+    "speed":      3,
+    "brightness": 16
 }
 ```
 
